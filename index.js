@@ -38,7 +38,7 @@ app.delete("/api/heroes/:id", HeroController.deleteOneHero);
 
 app.post("/upload", uploadImg.single("image"), (req, res) => {
   res.json({
-    url_hero: `/img_hero_uploads/${req.file.originalname}`,
+    url_hero: `img_hero_uploads/${req.file.originalname}`,
   });
 });
 // app.delete("/api/heroes", heroCreateValidator, HeroController.createHero);
