@@ -4,7 +4,6 @@ import * as HeroController from "./Controller/HeroControler.js";
 import { heroCreateValidator } from "./Validations/Hero_validation.js";
 import multer from "multer";
 import cors from "cors";
-const port = 3013;
 
 const app = express();
 
@@ -45,7 +44,7 @@ app.post("/upload", uploadImg.single("image"), (req, res) => {
 // app.delete("/api/heroes", heroCreateValidator, HeroController.createHero);
 // app.update("/api/heroes", heroCreateValidator, HeroController.createHero);
 
-app.listen(port, (err) => {
+app.listen(process.env.PORT || 3013, (err) => {
   if (err) {
     return console.log(err);
   }
