@@ -5,8 +5,6 @@ import { heroCreateValidator } from "./Validations/Hero_validation.js";
 import multer from "multer";
 import cors from "cors";
 const port = 3013;
-const dbUrl =
-  "mongodb+srv://artful:789456@marvelcluster.04sh9js.mongodb.net/marvels?retryWrites=true&w=majority";
 
 const app = express();
 
@@ -15,7 +13,7 @@ app.use(cors());
 app.use("/img_hero_uploads", express.static("img_hero_uploads"));
 
 mongoose
-  .connect(dbUrl)
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("DB Coonect Ok"))
   .catch((err) => console.log("Error connect db"));
 
